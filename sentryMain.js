@@ -1185,7 +1185,7 @@ const faker = {
     //target the top most stacktrace
     var stacktrace = req.jsonPayload.data.event.exception.values[exceptionTotal-1].raw_stacktrace.frames;
 
-    //let length of stacktrace
+    //get length of stacktrace
     var stackLength = Object.keys(stacktrace).length;
     let lastFile = ''; 
 
@@ -1211,7 +1211,7 @@ const faker = {
         ]
 
         //adding the file where the exception occured
-        //grabs the second to last line of the stacktrace which seems to always have the file
+        //grabs the second to last line of the stacktrace which seems to usually have the file
         const fileString = stacktrace[stackLength-2].filename.toString();
         const lastSlash = fileString.lastIndexOf('\\');
         const shortName = fileString.substring(lastSlash + 1);
